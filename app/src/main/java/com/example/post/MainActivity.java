@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -26,7 +27,7 @@ import java.io.ByteArrayOutputStream;
 
 public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
-    Bitmap picture;
+    Uri picture;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                 PackageManager.PERMISSION_GRANTED) {
             requestPermissionLauncher.launch(Manifest.permission.READ_EXTERNAL_STORAGE);
         }
+
     }
 
     ActivityResultLauncher<Intent> resultLauncher =
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
                         if (result.getResultCode() == RESULT_OK && null != data) {
                             Uri selectedImage = data.getData();
+                            picture = selectedImage;
                             Bitmap bitmap = loadBitmap(selectedImage);
                             binding.image.setImageBitmap(bitmap);
 //                            this.bitmap1 = bitmap;
@@ -76,8 +79,13 @@ public class MainActivity extends AppCompatActivity {
         String name = binding.editTextName.getText().toString();
         intent.putExtra("name", name);
 
-
         intent.putExtra("picture", picture);
+//        Uri bitmap = intent.getData();
+//        Bitmap picture = loadBitmap(bitmap);
+////        Bitmap picture = ((BitmapDrawable) binding.image.getDrawable()).getBitmap();
+//        binding.image.setImageBitmap(picture);
+//        intent.putExtra("picture", bitmap);
+//        Log.i("pic", "passed");
 
 //        Bitmap picture = ((BitmapDrawable) binding.image.getDrawable()).getBitmap();
 //        float scale = (float)(1024/(float)picture.getWidth());
