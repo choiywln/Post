@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
                             picture = selectedImage;
                             Bitmap bitmap = loadBitmap(selectedImage);
                             binding.image.setImageBitmap(bitmap);
-//                            this.bitmap1 = bitmap;
                         }
                     });
 
@@ -80,30 +79,6 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("name", name);
 
         intent.putExtra("picture", picture);
-//        Uri bitmap = intent.getData();
-//        Bitmap picture = loadBitmap(bitmap);
-////        Bitmap picture = ((BitmapDrawable) binding.image.getDrawable()).getBitmap();
-//        binding.image.setImageBitmap(picture);
-//        intent.putExtra("picture", bitmap);
-//        Log.i("pic", "passed");
-
-//        Bitmap picture = ((BitmapDrawable) binding.image.getDrawable()).getBitmap();
-//        float scale = (float)(1024/(float)picture.getWidth());
-//        int image_w = (int)(picture.getWidth() * scale);
-//        int image_h = (int)(picture.getHeight() * scale);
-//        Bitmap resize = Bitmap.createScaledBitmap(picture, image_w, image_h, true);
-//        intent.putExtra("picture", resize);
-
-
-//        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-//        Bitmap bitmap = ((BitmapDrawable)binding.image.getDrawable()).getBitmap();
-//        float scale = (float)(1024/(float)bitmap.getWidth());
-//        int image_w = (int)(bitmap.getWidth() * scale);
-//        int image_h = (int)(bitmap.getHeight() * scale);
-//        Bitmap resize = Bitmap.createScaledBitmap(bitmap, image_w, image_h, true);
-//        resize.compress(Bitmap.CompressFormat.JPEG,100,stream);
-//        byte[] byteArray = stream.toByteArray();
-//        intent.putExtra("image", byteArray);
 
         startActivity(intent);
     }

@@ -39,12 +39,6 @@ public class PostActivity extends AppCompatActivity {
         String nameSaved = intent.getStringExtra("name");
         binding.nameSaved.setText("" + nameSaved);
 
-//        byte[] byteArray = getIntent().getByteArrayExtra("image");
-//        Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-//        binding.pictureSaved.setImageBitmap(bitmap);
-
-//        Bitmap pictureSaved = (Bitmap) intent.ge();
-//        binding.pictureSaved.setImageBitmap(pictureSaved);
         Uri pictureSaved = intent.getParcelableExtra("picture");
         Bitmap picture = loadBitmap(pictureSaved);
         binding.pictureSaved.setImageBitmap(picture);
